@@ -1,0 +1,32 @@
+{
+  "name": "fullstackoverflow-back",
+  "version": "1.0.0",
+  "description": "Projet JS back",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThibautDiMartino/FullStackOverflow-back.git"
+  },
+  "author": "Thibaut Di Martino && Floriane Roy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ThibautDiMartino/FullStackOverflow-back/issues"
+  },
+  "homepage": "https://github.com/ThibautDiMartino/FullStackOverflow-back#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "faker": "^5.1.0",
+    "mongoose": "^5.10.14"
+  },
+  "devDependencies": {
+    "eslint": "^7.2.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-react": "^7.21.5"
+  }
+}
