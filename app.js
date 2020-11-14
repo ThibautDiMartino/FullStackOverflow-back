@@ -30,4 +30,4 @@ const signUpRouter = require('./sources/routes/signUp');
 app.use('/', indexRouter);
 app.use('/signup', signUpRouter);
 
-app.listen(3000, () => console.log('Listenning on port 3000'));
+app.listen(PORT, () => console.log('Listenning on port ' + PORT));
