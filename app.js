@@ -10,7 +10,7 @@ const path = require('path');
 const PORT = process.env.PORT || 5000;
 
 
-app.set('views', path.join(__dirname, 'views'))
+app.set('views', path.join(__dirname, './sources/views'))
   .set('view engine', 'ejs')
 
 app.use(cors());
