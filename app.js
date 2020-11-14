@@ -24,10 +24,10 @@ mongoose.connect(process.env.DB_CONNECTION, { useCreateIndex: true, useNewUrlPar
 
 // Import ROUTES
 const indexRouter = require('./sources/routes/index');
-const signUpRouter = require('./sources/routes/signUp');
+// const signUpRouter = require('./sources/routes/signUp');
 
 // Use ROUTES
 app.use('/', indexRouter);
-app.use('/signup', signUpRouter);
+// app.use('/signup', signUpRouter);
 
 app.listen(PORT, () => console.log('Listenning on port ' + PORT));
