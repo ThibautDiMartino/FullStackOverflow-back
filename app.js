@@ -7,7 +7,7 @@ const cors = require('cors');
 require('dotenv/config');
 
 const path = require('path');
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 
 
 app.set('views', path.join(__dirname, './sources/views'))
@@ -30,4 +30,4 @@ const signUpRouter = require('./sources/routes/signUp');
 app.use('/', indexRouter);
 app.use('/signup', signUpRouter);
 
-app.listen(3000, () => console.log('Listenning on port 3000'));
+app.listen(process.env.PORT, () => console.log('Listenning on port 3000'));
