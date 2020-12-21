@@ -3,7 +3,7 @@ const router = express.Router(); // eslint-disable-line
 const User = require('../models/user');
 
 // Retrieve all users
-router.get('/', async (req, res) => {
+router.get('/', async(req, res) => {
     try {
         const users = await User.find();
 
@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
 })
 
 // Retrieve data from a specific user
-router.get('/user', async (req, res) => {
+router.get('/user', async(req, res) => {
     try {
         const user = await User.findById(req.body._id); // eslint-disable-line
 
@@ -25,12 +25,12 @@ router.get('/user', async (req, res) => {
 })
 
 // Create a new user
-router.post('/', async (req, res) => {
+router.post('/', async(req, res) => {
     const user = new User({
         creationDate: new Date(),
         email: req.body.email,
         firstName: req.body.firstName,
-        isconnected: false,
+        isConnected: false,
         lastName: req.body.lastName,
         lastUpdated: new Date(),
         password: req.body.password
@@ -54,7 +54,7 @@ router.post('/', async (req, res) => {
 })
 
 // Delete a user by his id
-router.delete('/', async (req, res) => {
+router.delete('/', async(req, res) => {
     try {
         const deleteUser = await User.remove({ _id: req.body._id }); // eslint-disable-line
 

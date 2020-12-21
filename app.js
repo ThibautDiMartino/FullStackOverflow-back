@@ -1,5 +1,5 @@
 const express = require('express');
-const mongoose  = require('mongoose');
+const mongoose = require('mongoose');
 const bobyParser = require('body-parser');
 const app = express();
 const cors = require('cors');
@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 5000;
 
 
 app.set('views', path.join(__dirname, './sources/views'))
-  .set('view engine', 'ejs')
+    .set('view engine', 'ejs')
 
 app.use(cors());
 // parse application/json
@@ -24,10 +24,12 @@ mongoose.connect(process.env.DB_CONNECTION, { useCreateIndex: true, useNewUrlPar
 
 // Import ROUTES
 const indexRouter = require('./sources/routes/index');
-// const signUpRouter = require('./sources/routes/signUp');
+const signUpRouter = require('./sources/routes/signUp');
+const signInRouter = require('./sources/routes/signin');
 
 // Use ROUTES
 app.use('/', indexRouter);
-// app.use('/signup', signUpRouter);
+app.use('/signup', signUpRouter);
+app.use('/signin', signInRouter);
 
 app.listen(PORT, () => console.log('Listenning on port ' + PORT));
