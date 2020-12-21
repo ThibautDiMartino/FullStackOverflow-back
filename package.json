@@ -1,38 +1,45 @@
 {
-  "name": "fullstackoverflow-back",
-  "version": "1.0.0",
-  "description": "Projet JS back",
-  "main": "app.js",
-  "scripts": {
-    "start": "node app.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ThibautDiMartino/FullStackOverflow-back.git"
-  },
-  "author": "Thibaut Di Martino && Floriane Roy",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ThibautDiMartino/FullStackOverflow-back/issues"
-  },
-  "homepage": "https://github.com/ThibautDiMartino/FullStackOverflow-back#readme",
-  "dependencies": {
-    "body-parser": "^1.19.0",
-    "cool-ascii-faces": "^1.3.4",
-    "cors": "^2.8.5",
-    "dotenv": "^8.2.0",
-    "ejs": "^3.1.5",
-    "express": "^4.17.1",
-    "faker": "^5.1.0",
-    "mongoose": "^5.10.14"
-  },
-  "devDependencies": {
-    "eslint": "^7.2.0",
-    "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-react": "^7.21.5"
-  },
-  "engines": {
-    "node": "^12.16.2"
-  }
+    "name": "fullstackoverflow-back",
+    "version": "1.0.0",
+    "description": "Projet JS back",
+    "main": "app.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
+        "start": "npm run build && node dist/app.js",
+        "lint": "eslint ."
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ThibautDiMartino/FullStackOverflow-back.git"
+    },
+    "author": "Thibaut Di Martino && Floriane Roy",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/ThibautDiMartino/FullStackOverflow-back/issues"
+    },
+    "homepage": "https://github.com/ThibautDiMartino/FullStackOverflow-back#readme",
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "cool-ascii-faces": "^1.3.4",
+        "cors": "^2.8.5",
+        "dotenv": "^8.2.0",
+        "ejs": "^3.1.5",
+        "express": "^4.17.1",
+        "faker": "^5.1.0",
+        "mongoose": "^5.10.14",
+        "eslint-plugin-react": "^7.21.5"
+    },
+    "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-preset-es2015": "^6.24.1",
+        "eslint": "^7.16.0",
+        "eslint-config-airbnb-base": "^14.2.1",
+        "eslint-plugin-import": "^2.22.1",
+        "eslint-plugin-react": "^7.21.5",
+        "rimraf": "^3.0.2"
+    },
+    "engines": {
+        "node": "^12.16.2"
+    }
 }

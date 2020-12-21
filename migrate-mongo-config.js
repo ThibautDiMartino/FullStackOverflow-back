@@ -1,7 +1,11 @@
-require('dotenv/config')
+require('dotenv/config');
 
 const config = {
-    // The mongodb collection where the applied changes are stored. Only edit this when really necessary.
+
+    /*
+     * The mongodb collection where the applied changes
+     * are stored. Only edit this when really necessary.
+     */
     changelogCollectionName: 'changelog',
     // The file extension to create migrations and search for in migration dir
     migrationFileExtension: '.js',

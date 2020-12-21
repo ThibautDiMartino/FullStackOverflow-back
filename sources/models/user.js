@@ -1,4 +1,5 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
+
 const userSchema = mongoose.Schema({ // eslint-disable-line
     creationDate: {
         type: Date
@@ -26,6 +27,6 @@ const userSchema = mongoose.Schema({ // eslint-disable-line
         required: true,
         type: String
     }
-})
+});
 
-module.exports = mongoose.model('user', userSchema);
+export default mongoose.model('user', userSchema);
