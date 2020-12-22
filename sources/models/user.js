@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const userSchema = mongoose.Schema({ // eslint-disable-line
+const userSchema = mongoose.Schema({
     creationDate: {
         type: Date
     },
@@ -10,6 +10,10 @@ const userSchema = mongoose.Schema({ // eslint-disable-line
         unique: true
     },
     firstName: {
+        required: true,
+        type: String
+    },
+    gender: {
         required: true,
         type: String
     },
@@ -25,6 +29,12 @@ const userSchema = mongoose.Schema({ // eslint-disable-line
     },
     password: {
         required: true,
+        type: String
+    },
+    profilePicture: {
+        type: String
+    },
+    room: {
         type: String
     }
 });

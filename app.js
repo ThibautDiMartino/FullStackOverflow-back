@@ -5,10 +5,11 @@ import express from 'express';
 import indexRouter from './sources/routes/index.js';
 import mongoose from 'mongoose';
 import path from 'path';
+import roomRouter from './sources/routes/room.js';
 import signInRouter from './sources/routes/signIn.js';
 import signUpRouter from './sources/routes/signUp.js';
-// Retrieve db connection info
 
+// Retrieve db connection info
 dotenv.config();
 
 const app = express();
@@ -30,6 +31,7 @@ mongoose.connect(
 
 // Use ROUTES
 app.use('/', indexRouter);
+app.use('/room', roomRouter);
 app.use('/signup', signUpRouter);
 app.use('/signin', signInRouter);
 
