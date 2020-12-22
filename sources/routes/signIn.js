@@ -7,9 +7,9 @@ router.get('/', async (req, res) => {
     try {
         const users = await User.find({ isConnected: { $in: true } });
 
-        res.status(res.statusCode).json(users);
+        return res.status(res.statusCode).send(users);
     } catch (err) {
-        res.status(res.statusCode).json(err);
+        return res.status(res.statusCode).json(err);
     }
 });
 
