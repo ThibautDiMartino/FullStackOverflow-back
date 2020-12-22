@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
     try {
         const users = await User.find();
 
-        res.status(res.statusCode).json(users);
+        res.status(res.statusCode).send(users);
     } catch (err) {
         res.status(res.statusCode).json(err);
     }
