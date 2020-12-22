@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
 
         return res.status(res.statusCode).send(users);
     } catch (err) {
-        res.status(res.statusCode).json(err);
+        return res.status(res.statusCode).json(err);
     }
 });
 
