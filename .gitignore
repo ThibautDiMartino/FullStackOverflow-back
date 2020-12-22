@@ -3,9 +3,6 @@ npm-debug.log
 .DS_Store
 /*.env
 /dist
-.migrate
 .prettierrc
 .babelrc
 .eslintignore
-.eslintrc.js
-.gitignore

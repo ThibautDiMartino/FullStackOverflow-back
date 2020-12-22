@@ -1,0 +1,9 @@
+{
+  "lastRun": "20201113175657-add-password-field.js",
+  "migrations": [
+    {
+      "title": "20201113175657-add-password-field.js",
+      "timestamp": 1605294137308
+    }
+  ]
+}
