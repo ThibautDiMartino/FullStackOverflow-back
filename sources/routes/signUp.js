@@ -30,8 +30,10 @@ router.post('/', async (req, res) => {
         creationDate: new Date(),
         email: req.body.email,
         firstName: req.body.firstName,
+        friends: [],
         gender: req.body.gender,
         isConnected: false,
+        isMatching: false,
         lastName: req.body.lastName,
         lastUpdated: new Date(),
         password: req.body.password,
@@ -60,6 +62,21 @@ router.delete('/', async (req, res) => {
     try {
         const deleteUser = await User.deleteOne({ _id: req.body._id });
 
+        res.status(res.statusCode).json(deleteUser);
+    } catch (err) {
+        res.status(res.statusCode).json(err);
+    }
+});
+
+// Delete a user by his id
+router.delete('/multiple', (req, res) => {
+    try {
+        const deleteUser = [];
+
+        req.body.ids.forEach(async (element) => {
+            deleteUser.push(await User.deleteOne({ _id: element }));
+
+        });
         res.status(res.statusCode).json(deleteUser);
     } catch (err) {
         res.status(res.statusCode).json(err);

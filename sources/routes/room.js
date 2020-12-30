@@ -1,6 +1,7 @@
 import Room from '../models/room.js';
 import User from '../models/user.js';
 import express from 'express';
+import request from 'supertest';
 const router = express.Router();
 
 // Retrieve all the created rooms
@@ -9,6 +10,16 @@ router.get('/', async (req, res) => {
         const users = await Room.find();
 
         res.status(res.statusCode).json(users);
+    } catch (err) {
+        res.status(res.statusCode).json(err);
+    }
+});
+
+router.get('/matching', async (req, res) => {
+    try {
+        const searchMatching = await User.find({ isMatching: { $in: true } });
+
+        res.status(res.statusCode).json(searchMatching);
     } catch (err) {
         res.status(res.statusCode).json(err);
     }
@@ -39,6 +50,25 @@ router.post('/create', async (req, res) => {
         } else {
             res.status(409).json('User has an active room');
         }
+    } catch (err) {
+        res.status(res.statusCode).json(err);
+    }
+});
+
+router.post('/matching', async (req, res) => {
+    try {
+        const updateUser = await User.findByIdAndUpdate(
+            req.body._id,
+            { isMatching: true }
+        );
+        const client = request(req.app);
+        const match = client.get('/matching');
+
+        if (match !== null) {
+            console.log(match);
+        }
+
+        res.status(res.statusCode).json(updateUser);
     } catch (err) {
         res.status(res.statusCode).json(err);
     }

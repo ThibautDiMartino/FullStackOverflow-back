@@ -13,11 +13,17 @@ const userSchema = mongoose.Schema({
         required: true,
         type: String
     },
+    friends: {
+        type: [String]
+    },
     gender: {
         required: true,
         type: String
     },
     isConnected: {
+        type: Boolean
+    },
+    isMatching: {
         type: Boolean
     },
     lastName: {

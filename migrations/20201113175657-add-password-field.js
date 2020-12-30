@@ -33,7 +33,7 @@ module.exports = {
          */
         return db.collection('users').updateMany({}, {
             $set: {
-                password: ''
+                password: '1332d8fdd1312'
             }
         });
     }
