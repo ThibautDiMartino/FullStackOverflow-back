@@ -32,7 +32,7 @@ router.post('/', async (req, res) => {
         firstName: req.body.firstName,
         friends: [],
         gender: req.body.gender,
-        isConnected: false,
+        isConnected: true,
         isMatching: false,
         lastName: req.body.lastName,
         lastUpdated: new Date(),
