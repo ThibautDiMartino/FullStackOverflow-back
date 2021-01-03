@@ -1,4 +1,4 @@
-import bobyParser from 'body-parser';
+import bodyParser from 'body-parser';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import express from 'express';
@@ -19,7 +19,8 @@ app.set('views', path.join(__dirname, './sources/views')).
 
 app.use(cors());
 // parse application/json
-app.use(bobyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 // Connect to db
 mongoose.connect(
