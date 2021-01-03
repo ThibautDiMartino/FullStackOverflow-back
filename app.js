@@ -29,24 +29,21 @@ const server = app.listen(process.env.PORT, () => {
 
 const io = socket(server);
 
-// let users = [];
 
-// const messages = [];
+const rooms = [];
 
 io.on('connection', (sock) => {
     console.log(sock.id);
-
+    sock.emit('rooms', rooms);
     sock.on('join_room', (data) => {
         sock.join(data.room);
-        // users = data.map(data.room, data.content);
+        rooms.push(data.content);
         console.log(`${data.content.user} Joined Room: ${data.room}`);
-        // console.log(users);
         sock.to(data.room).emit('receive_user', data.content);
     });
 
     sock.on('send_message', (data) => {
         console.log(data);
-        // messages.push(data.content);
         sock.to(data.room).emit('receive_message', data.content);
     });
 
