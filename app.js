@@ -8,6 +8,7 @@ import path from 'path';
 import roomRouter from './sources/routes/room.js';
 import signInRouter from './sources/routes/signIn.js';
 import signUpRouter from './sources/routes/signUp.js';
+import socket from 'socket.io';
 
 // Retrieve db connection info
 dotenv.config();
@@ -18,8 +19,41 @@ app.set('views', path.join(__dirname, './sources/views')).
     set('view engine', 'ejs');
 
 app.use(cors());
+app.use(express.json());
 // parse application/json
 app.use(bobyParser.json());
+
+const server = app.listen(process.env.PORT, () => {
+    console.log(`listenning to port ${process.env.PORT}`);
+});
+
+const io = socket(server);
+
+// let users = [];
+
+// const messages = [];
+
+io.on('connection', (sock) => {
+    console.log(sock.id);
+
+    sock.on('join_room', (data) => {
+        sock.join(data.room);
+        // users = data.map(data.room, data.content);
+        console.log(`${data.content.user} Joined Room: ${data.room}`);
+        // console.log(users);
+        sock.to(data.room).emit('receive_user', data.content);
+    });
+
+    sock.on('send_message', (data) => {
+        console.log(data);
+        // messages.push(data.content);
+        sock.to(data.room).emit('receive_message', data.content);
+    });
+
+    sock.on('disconnect', () => {
+        console.log('USER DISCONNECTED');
+    });
+});
 
 // Connect to db
 mongoose.connect(
@@ -34,9 +68,5 @@ app.use('/', indexRouter);
 app.use('/room', roomRouter);
 app.use('/signup', signUpRouter);
 app.use('/signin', signInRouter);
-
-app.listen(process.env.PORT, () => {
-    console.log(`listenning to port ${process.env.PORT}`);
-});
 
 module.exports = app;
